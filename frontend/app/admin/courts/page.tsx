@@ -70,7 +70,9 @@ export default function AdminCourtsPage() {
                   <span>
                     {typeof court.openingHours === "object" && "monday" in court.openingHours
                       ? "ดูเวลาเปิด-ปิด"
-                      : `${court.openingHours.open} - ${court.openingHours.close}`}
+                      : "open" in court.openingHours
+                      ? `${(court.openingHours as { open: string; close: string }).open} - ${(court.openingHours as { open: string; close: string }).close}`
+                      : "ดูเวลาเปิด-ปิด"}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-text-secondary">

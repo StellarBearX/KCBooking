@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import { Card, CardContent } from "@/components/ui/Card";
@@ -8,7 +9,7 @@ import { mockCourt } from "@/lib/data";
 import { formatCurrency } from "@/lib/utils";
 import { CheckCircle2 } from "lucide-react";
 
-export default function ConfirmationPage() {
+function ConfirmationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const bookingId = searchParams.get("bookingId") || "#BM123455";
@@ -69,5 +70,17 @@ export default function ConfirmationPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ConfirmationPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background pb-20 flex items-center justify-center">
+        <div className="text-text-secondary">กำลังโหลด...</div>
+      </div>
+    }>
+      <ConfirmationContent />
+    </Suspense>
   );
 }
