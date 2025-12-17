@@ -34,5 +34,13 @@ export const ROUTES = {
   myBookings: "/my-bookings",
   profile: "/profile",
   terms: "/terms",
+  admin: "/admin",
+  adminBookings: "/admin/bookings",
+  adminCourts: "/admin/courts",
+  adminSchedule: "/admin/schedule",
+  adminUsers: "/admin/users",
+  adminReports: "/admin/reports",
+  adminSettings: "/admin/settings",
+  adminNotifications: "/admin/notifications",
 } as const;
 
