@@ -1,4 +1,4 @@
-import { courtsData } from "@/lib/data";
+import { courtsData } from "@/src/data/courtsData";
 
 export interface Court {
   id: string;
